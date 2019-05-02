@@ -2,13 +2,26 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :commanded,
+  event_store_adapter: Commanded.EventStore.Adapters.EventStore
+
+config :eventstore, EventStore.Storage,
+  serializer: Commanded.Serialization.JsonSerializer,
+  username: "nested",
+  password: "nested",
+  database: "commanded_eventstore_db",
+  hostname: "localhost",
+  port: 54321,
+  pool_size: 10
+
 config :commanded_eventstore_db, ecto_repos: [CommandedEventstoreDB.Repo]
 
 config :commanded_eventstore_db, CommandedEventstoreDB.Repo,
   database: "commanded_eventstore_db_repo",
-  username: "user",
-  password: "pass",
-  hostname: "localhost"
+  username: "nested",
+  password: "nested",
+  hostname: "localhost",
+  port: 54321
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
