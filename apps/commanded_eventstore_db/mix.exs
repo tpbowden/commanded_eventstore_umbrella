@@ -27,7 +27,9 @@ defmodule CommandedEventstoreDb.MixProject do
   defp deps do
     [
       {:commanded_eventstore_adapter, "~> 0.5"},
+      {:commanded_swarm_registry, "~> 0.1"},
       {:ecto_sql, "~> 3.0"},
+      {:phoenix_pubsub, "~> 1.0"},
       {:postgrex, ">= 0.0.0"}
     ]
   end

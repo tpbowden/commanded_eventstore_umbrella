@@ -3,7 +3,16 @@
 use Mix.Config
 
 config :commanded,
-  event_store_adapter: Commanded.EventStore.Adapters.EventStore
+  event_store_adapter: Commanded.EventStore.Adapters.EventStore,
+  registry: Commanded.Registration.SwarmRegistry,
+  pubsub: [
+    phoenix_pubsub: [
+      adapter: Phoenix.PubSub.PG2,
+      pool_size: 1
+    ]
+  ]
+
+config :eventstore, registry: :distributed
 
 config :eventstore, EventStore.Storage,
   serializer: Commanded.Serialization.JsonSerializer,
