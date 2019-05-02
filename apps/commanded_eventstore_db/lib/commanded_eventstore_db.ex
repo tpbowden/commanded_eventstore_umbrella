@@ -8,7 +8,7 @@ defmodule CommandedEventstoreDb do
 
   ## Examples
 
-      iex> CommandedEventstoreDb.hello
+      iex> CommandedEventstoreDb.hello()
       :world
 
   """

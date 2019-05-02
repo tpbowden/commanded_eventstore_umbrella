@@ -41,6 +41,7 @@ defmodule CommandedEventstoreWeb.MixProject do
       {:phoenix_pubsub, "~> 1.1"},
       {:gettext, "~> 0.11"},
       {:commanded_eventstore, in_umbrella: true},
+      {:commanded_eventstore_db, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]
