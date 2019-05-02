@@ -6,8 +6,15 @@ defmodule CommandedEventstore.Application do
   use Application
 
   def start(_type, _args) do
+    topologies = [
+      example: [
+        strategy: Cluster.Strategy.Epmd,
+        config: [hosts: [:"a@127.0.0.1", :"b@127.0.0.1"]]
+      ]
+    ]
+
     children = [
-      # CommandedEventstore.Worker
+      {Cluster.Supervisor, [topologies, [name: MyApp.ClusterSupervisor]]}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: CommandedEventstore.Supervisor)

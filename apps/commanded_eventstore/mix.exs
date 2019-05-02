@@ -35,7 +35,9 @@ defmodule CommandedEventstore.MixProject do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    []
+    [
+      {:libcluster, "~> 3.0"}
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
